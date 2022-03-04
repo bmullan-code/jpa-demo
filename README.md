@@ -44,3 +44,42 @@ Run locally
 
 ```
 
+
+Invoke (GET)
+
+```
+ % curl localhost:8080/persons
+{
+  "_embedded" : {
+    "persons" : [ {
+      "firstName" : "Tony",
+      "lastName" : "Stark",
+      "_links" : {
+        "self" : {
+          "href" : "http://localhost:8080/persons/1"
+        },
+        "person" : {
+          "href" : "http://localhost:8080/persons/1"
+        }
+      }
+    }, {
+```
+
+Invoke (POST)
+```
+% curl -X POST -H 'Content-Type: application/json'  -d '{ "firstName" : "joe","lastName" : "biden" }' localhost:8080/persons
+{
+  "firstName" : "joe",
+  "lastName" : "biden",
+  "_links" : {
+    "self" : {
+      "href" : "http://localhost:8080/persons/3"
+    },
+    "person" : {
+      "href" : "http://localhost:8080/persons/3"
+    }
+  }
+}%
+```
+
+
